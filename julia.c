@@ -6,11 +6,11 @@
 /*   By: fdeclerc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/30 15:39:49 by fdeclerc          #+#    #+#             */
-/*   Updated: 2017/01/30 16:02:30 by fdeclerc         ###   ########.fr       */
+/*   Updated: 2017/02/01 16:14:17 by fdeclerc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fractol.h>
+#include "fractol.h"
 
 void	ft_draw(t_data *e)
 {
@@ -30,13 +30,13 @@ void	ft_geometric(t_data *e, int x, int y, int i)
 {
 	e->color = (i % 256 * (i < e->iter));
 	if (e->row == 0)
-		pixel_to_image(mlx_get_color_value(e->mlx, 0x00FFF999 * e->color),
+		ft_img_pixel(mlx_get_color_value(e->mlx, 0x00FFF999 * e->color),
 				e, x, y);
 	if (e->row == 1)
-		pixel_to_image(mlx_get_color_value(e->mlx, 0x00CC33F * e->color),
+		ft_img_pixel(mlx_get_color_value(e->mlx, 0x00CC33F * e->color),
 				e, x, y);
 	if (e->row == 2)
-		pixel_to_image(mlx_get_color_value(e->mlx, 0x006600CC * e->color),
+		ft_img_pixel(mlx_get_color_value(e->mlx, 0x006600CC * e->color),
 				e, x, y);
 }
 

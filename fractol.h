@@ -6,7 +6,7 @@
 /*   By: fdeclerc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/30 13:01:49 by fdeclerc          #+#    #+#             */
-/*   Updated: 2017/02/01 13:27:07 by fdeclerc         ###   ########.fr       */
+/*   Updated: 2017/02/01 16:08:37 by fdeclerc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,23 +69,12 @@ typedef struct		s_coord
 	double			y;
 }					t_coord;
 
-static void			ft_init(t_data *e);
-static void			ft_launch(t_data *e);
-int					ft_choice_fractol(void);
-void				ft_draw(t_data *e);
-void				ft_init_coord(t_data *e);
-void				ft_geometric(t_data *e, int x, int y, int i);
 void				ft_julia(t_data *e);
-int					ft_key_color(int keycode, t_data *e);
-int					ft_key_fractol(int keycode, t_data *e);
 int					ft_key_status(int keycode, t_data *e);
 int					ft_expose(int x, int y, t_data *e);
-void				ft_zoom_in(t_data *e, double x_tall, double y_tall, t_coord pos);
-void				ft_zoom_out(t_data *e, double x_tall, double y_tall);
 int					ft_mouse(int button, int x, int y, t_data *e);
-void				ft_draw_m(t_data *e);
-void				ft_init_coord_m(t_data *e);
-void				ft_geometric_m(t_data *e, int x, int y, int i);
 void				ft_mandelbrot(t_data *e);
+void				ft_burn(t_data *e);
+void				ft_img_pixel(unsigned long color, t_data *e, int x, int y);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: fdeclerc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/01 11:37:28 by fdeclerc          #+#    #+#             */
-/*   Updated: 2017/02/01 13:29:22 by fdeclerc         ###   ########.fr       */
+/*   Updated: 2017/02/01 16:35:44 by fdeclerc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ int			ft_mouse(int button, int x, int y, t_data *e)
 	pos.y = y / (650 / (e->y2 - e->y1)) + e->y1;
 	if (button == 5)
 		ft_zoom_in(e, x_tall, y_tall, pos);
+	else if (button == 4)
+		ft_zoom_out(e, x_tall, y_tall);
 	mlx_destroy_image(e->mlx, e->img);
 	mlx_clear_window(e->mlx, e->win);
 	e->img = mlx_new_image(e->mlx, 1000, 650);

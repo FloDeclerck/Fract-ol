@@ -6,7 +6,7 @@
 /*   By: fdeclerc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/30 15:02:32 by fdeclerc          #+#    #+#             */
-/*   Updated: 2017/02/01 13:28:45 by fdeclerc         ###   ########.fr       */
+/*   Updated: 2017/02/01 16:45:15 by fdeclerc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int				ft_choice_fractol(void)
 	{
 		if (buff[0] == '1' && buff[1] == '\n')
 			return (1);
-		else if (buff[0] == '2' && buff[1] =='\n')
+		else if (buff[0] == '2' && buff[1] == '\n')
 			return (2);
 		else if (buff[0] == '3' && buff[1] == '\n')
 			return (3);

@@ -6,7 +6,7 @@
 /*   By: fdeclerc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/01 11:12:12 by fdeclerc          #+#    #+#             */
-/*   Updated: 2017/02/01 13:23:13 by fdeclerc         ###   ########.fr       */
+/*   Updated: 2017/02/01 16:30:22 by fdeclerc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ int		ft_key_fractol(int keycode, t_data *e)
 {
 	if (keycode == 69)
 		e->iter += 4;
-	if (keycode == 78)
-		e->iter -= 4;
 	return (ft_key_color(keycode, e));
 }
 
@@ -48,5 +46,7 @@ int		ft_key_status(int keycode, t_data *e)
 		e->stop = 1;
 	if (keycode == 258)
 		e->stop = 0;
+	if (keycode == 78)
+		e->iter -= 4;
 	return (ft_key_fractol(keycode, e));
 }

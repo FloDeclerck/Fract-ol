@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*   burn.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fdeclerc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/01 12:54:22 by fdeclerc          #+#    #+#             */
-/*   Updated: 2017/02/01 16:14:42 by fdeclerc         ###   ########.fr       */
+/*   Created: 2017/02/01 15:11:37 by fdeclerc          #+#    #+#             */
+/*   Updated: 2017/02/01 16:15:11 by fdeclerc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	ft_draw_m(t_data *e)
+void	ft_draw_b(t_data *e)
 {
-	e->old_re = e->new_re;
-	e->old_im = e->new_im;
+	e->old_re = fabs(e->new_re);
+	e->old_im = fabs(e->new_im);
 	e->new_re = e->old_re * e->old_re - e->old_im * e->old_im + e->pr;
 	e->new_im = 2 * e->old_re * e->old_im + e->pi;
 }
 
-void	ft_init_coord_m(t_data *e)
+void	ft_init_coord_b(t_data *e)
 {
 	e->new_re = 0;
 	e->new_im = 0;
@@ -28,7 +28,7 @@ void	ft_init_coord_m(t_data *e)
 	e->old_im = 0;
 }
 
-void	ft_geometric_m(t_data *e, int x, int y, int i)
+void	ft_geometric_b(t_data *e, int x, int y, int i)
 {
 	e->color = (i % 256 * (i < e->iter));
 	if (e->row == 0)
@@ -45,7 +45,7 @@ void	ft_geometric_m(t_data *e, int x, int y, int i)
 				e, x, y);
 }
 
-void	ft_mandelbrot(t_data *e)
+void	ft_burn(t_data *e)
 {
 	int i;
 	int x;
@@ -59,12 +59,12 @@ void	ft_mandelbrot(t_data *e)
 		{
 			e->pr = (double)x / (1000 / (e->x2 - e->x1)) + e->x1;
 			e->pi = (double)y / (650 / (e->y2 - e->y1)) + e->y1;
-			ft_init_coord_m(e);
+			ft_init_coord_b(e);
 			i = -1;
 			while (i++ < e->iter &&
 					(e->new_re * e->new_re + e->new_im * e->new_im) < 4)
-				ft_draw_m(e);
-			ft_geometric_m(e, x, y, i);
+				ft_draw_b(e);
+			ft_geometric_b(e, x, y, i);
 			y++;
 		}
 		x++;
