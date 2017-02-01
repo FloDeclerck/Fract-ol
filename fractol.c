@@ -6,11 +6,11 @@
 /*   By: fdeclerc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/30 15:02:32 by fdeclerc          #+#    #+#             */
-/*   Updated: 2017/01/30 16:03:52 by fdeclerc         ###   ########.fr       */
+/*   Updated: 2017/02/01 13:28:45 by fdeclerc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fractol.h>
+#include "fractol.h"
 
 static void		ft_init(t_data *e)
 {
@@ -19,7 +19,7 @@ static void		ft_init(t_data *e)
 	e->img = mlx_new_image(e->mlx, 1000, 650);
 	e->zoom = 1;
 	e->stop = 0;
-	e->colo = 0;
+	e->row = 0;
 	e->move_x = 0.0;
 	e->move_y = 0.0;
 	e->cre = -0.7;
@@ -34,16 +34,16 @@ static void		ft_init(t_data *e)
 static void		ft_launch(t_data *e)
 {
 	ft_init(e);
-	if (e->info == 1)
+	if (e->menu == 1)
 		ft_julia(e);
-	if (e->info == 2)
+	if (e->menu == 2)
 		ft_mandelbrot(e);
-	if (e->info == 3)
+	if (e->menu == 3)
 		ft_burn(e);
 	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
-	mlx_key_hook(e->win, touch_rotate, e);
-	mlx_mouse_hook(e->win, mouse_hook, e);
-	mlx_hook(e->win, 6, (1L << 6), expse_hook, e);
+	mlx_key_hook(e->win, ft_key_status, e);
+	mlx_mouse_hook(e->win, ft_mouse, e);
+	mlx_hook(e->win, 6, (1L << 6), ft_expose, e);
 	mlx_loop(e->mlx);
 }
 
@@ -80,16 +80,16 @@ int				main(void)
 	t_data *e;
 
 	e = malloc(sizeof(t_data));
-	e->info = 0;
+	e->menu = 0;
 	ft_putstr(GREEN);
 	ft_putendl("Bienvenue sur Fract'ol:");
 	ft_putstr(GREEN);
 	ft_putstr("1. Julia\n2. Mandelbrot\n3. Burning ship\n");
 	ft_putstr(ENDOF);
-	while (e->info != 1 && e->info != 2 && e->info != 3)
+	while (e->menu != 1 && e->menu != 2 && e->menu != 3)
 	{
-		e->info = ft_choice_fractol();
-		if (e->info == 2 || e->info == 1 || e->info == 3)
+		e->menu = ft_choice_fractol();
+		if (e->menu == 2 || e->menu == 1 || e->menu == 3)
 			ft_launch(e);
 		return (0);
 	}
