@@ -6,7 +6,7 @@
 /*   By: fdeclerc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/30 15:39:49 by fdeclerc          #+#    #+#             */
-/*   Updated: 2017/02/01 16:14:17 by fdeclerc         ###   ########.fr       */
+/*   Updated: 2017/02/03 11:34:24 by fdeclerc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,9 @@ void	ft_geometric(t_data *e, int x, int y, int i)
 				e, x, y);
 	if (e->row == 2)
 		ft_img_pixel(mlx_get_color_value(e->mlx, 0x006600CC * e->color),
+				e, x, y);
+	if (e->row == 3)
+		ft_img_pixel(mlx_get_color_value(e->mlx, 0x0066CCFF * e->color),
 				e, x, y);
 }
 

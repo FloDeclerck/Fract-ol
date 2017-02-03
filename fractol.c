@@ -6,7 +6,7 @@
 /*   By: fdeclerc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/30 15:02:32 by fdeclerc          #+#    #+#             */
-/*   Updated: 2017/02/02 12:06:36 by fdeclerc         ###   ########.fr       */
+/*   Updated: 2017/02/03 11:19:18 by fdeclerc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int				ft_choice_fractol(void)
 		else if ((buff[0] != 1 && buff[0] != 2) || buff[1] != '\n')
 		{
 			ft_putstr(RED);
-			ft_putstr("Enter a valid number");
+			ft_putstr("Entrez un chiffre valide");
 			ft_putstr(ENDOF);
 			return (0);
 		}
@@ -83,7 +83,7 @@ int				main(void)
 	e->menu = 0;
 	ft_putstr(GREEN);
 	ft_putendl("Bienvenue sur Fract'ol:");
-	ft_putstr(GREEN);
+	ft_putstr(CYAN);
 	ft_putstr("1. Julia\n2. Mandelbrot\n3. Burning ship\n");
 	ft_putstr(ENDOF);
 	while (e->menu != 1 && e->menu != 2 && e->menu != 3)
